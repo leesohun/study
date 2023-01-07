@@ -71,7 +71,7 @@ import time
 model.compile(loss='mse', optimizer='adam', 
               metrics=['mae'])
 start = time.time()
-model.fit(x_train, y_train, epochs=10, batch_size=3, validation_split=0.25)
+model.fit(x_train, y_train, epochs=1000, batch_size=3, validation_split=0.25)
          
 
 
