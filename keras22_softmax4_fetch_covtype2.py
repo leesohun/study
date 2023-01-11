@@ -6,10 +6,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
 # 1. 데이터
-from sklearn.preprocessing import OneHotEncoder
-ohe = OneHotEncoder()
-
-
 
 datasets = fetch_covtype()
 x = datasets.data
@@ -20,7 +16,7 @@ print(np.unique(y, return_counts=True))
 # array([1, 2, 3, 4, 5, 6, 7]), 
 # array([211840, 283301,  35754,   2747,   9493,  17367,  20510]
 
-
+###################### 사이킷런 원핫인코더 ####################
 print(y)
 print(y.shape) 
 print(type(y))
@@ -31,10 +27,15 @@ y = y.reshape(-1, 1) ## reshape y to have shape (n_samples, 1)
 # ohe = OneHotEncoder()
 # # 쉐이프를 맞추는 작업
 # y = ohe.fit_transform(y)
+y = y.reshape(581012, 1) #절대 순서는 바뀌면 안됨!
+from sklearn.preprocessing import OneHotEncoder
+ohe = OneHotEncoder()
+y = ohe.fit(y)
 y = ohe.fit_transform(y)
+print(y[:15])
 ohe = OneHotEncoder(sparse=False)
 print(y)
-print(y.shape)
+print(y.shape) #(581012, 7)
 print(type(y))
 
 y = y.toarray()
@@ -71,7 +72,7 @@ earlyStopping = EarlyStopping(monitor='val_loss',
 model.fit(x_train, y_train, epochs=200, batch_size=32,
           validation_split=0.2, callbacks=[earlyStopping],
           verbose=1)
-end = time.time()
+# end = time.time()
 
 # 4. 평가, 예측
 loss, accuracy = model.evaluate(x_test, y_test)
@@ -87,4 +88,4 @@ y_test = np.argmax(y_test, axis=1)
 print("y_test(원래값) : ", y_test)
 acc = accuracy_score(y_test, y_predict)
 print('acc :', acc)
-print('time : ', end-start)
+# print('time : ', end-start)
