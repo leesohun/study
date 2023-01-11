@@ -15,10 +15,17 @@ print(np.unique(y, return_counts=True))
 # array([1, 2, 3, 4, 5, 6, 7]), 
 # array([211840, 283301,  35754,   2747,   9493,  17367,  20510]
 
-import panda as pd
+####################판다스 겟더미스#################
+import pandas as pd
 y = pd.get_dummies(y)
-print(y)
-print(y.shape) 
+print(y[:10]) 
+print(type(y)) # <class 'pandas.core.frmae.Data
+y = y.values
+# numpy로 바뀜
+y = y.to_numpy()
+print(type(y)) # <class 'numpy.ndarray'>
+print(y.shape) #(581012, 7)
+
 
 
 x_train, x_test, y_train, y_test = train_test_split(
@@ -50,7 +57,7 @@ earlyStopping = EarlyStopping(monitor='val_loss',
 model.fit(x_train, y_train, epochs=200, batch_size=32,
           validation_split=0.2, callbacks=[earlyStopping],
           verbose=1)
-end = time.time()
+# end = time.time()
 
 # 4. 평가, 예측
 loss, accuracy = model.evaluate(x_test, y_test)
@@ -63,12 +70,12 @@ y_predict = model.predict(x_test)
 y_predict = np.argmax(y_predict, axis=1)
 print("y_pred(예측값) : ", y_predict)
 y_test = np.argmax(y_test, axis=1)
+# 넘파이가 바로 panadas를 못 받아들임!(못 알아봄)
 print("y_test(원래값) : ", y_test)
 acc = accuracy_score(y_test, y_predict)
 print('acc :', acc)
-print('time : ', end-start)
+# print('time : ', end-start)
 
 y_test = y_test.to_numpy()
 print(y_test)
 print(type(y_test))
-
