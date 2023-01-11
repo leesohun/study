@@ -30,7 +30,8 @@ y = y.reshape(-1, 1) ## reshape y to have shape (n_samples, 1)
 y = y.reshape(581012, 1) #절대 순서는 바뀌면 안됨!
 from sklearn.preprocessing import OneHotEncoder
 ohe = OneHotEncoder()
-y = ohe.fit(y)
+# ohe.fit(y)
+# y = ohe.fit_transform(y)
 y = ohe.fit_transform(y)
 print(y[:15])
 ohe = OneHotEncoder(sparse=False)
