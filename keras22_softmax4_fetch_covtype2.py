@@ -32,7 +32,7 @@ from sklearn.preprocessing import OneHotEncoder
 ohe = OneHotEncoder()
 # ohe.fit(y)
 # y = ohe.fit_transform(y)
-y = ohe.fit_transform(y)
+y = ohe.fit_transform
 print(y[:15])
 ohe = OneHotEncoder(sparse=False)
 print(y)
