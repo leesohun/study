@@ -32,10 +32,13 @@ print(y.shape) #(581012, 8) to_categorical 안됨!
 print(type(y)) # <class numpy 
 print(y[:10])
 print(np.unique(y[:,0],return_counts=True))
+# (array([0,], dtype-float32), array([581012], dtype=int64))
+print(np.unique(y[:,1],return_counts=True))
 print("=======================================")
 y = np.delete(y, 0, axis=1)
 print(y.shape)
 print(y[:10])
+print(np.unique(y[:,0], return_counts=True))
 # import pandas as pd
 # y = pd.get_dummies(y)
 
