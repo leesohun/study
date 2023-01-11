@@ -11,8 +11,8 @@ from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import OneHotEncoder
 ohe = OneHotEncoder()
 
-y = y.reshape(-1, 1) # reshape y to have shape (n_samples, 1)
-y = ohe.fit_transform(y)
+# y = y.reshape(-1, 1) # reshape y to have shape (n_samples, 1)
+# y = ohe.fit_transform(y)
 
 datasets = fetch_covtype()
 x = datasets.data
@@ -23,13 +23,19 @@ print(np.unique(y, return_counts=True))
 # array([1, 2, 3, 4, 5, 6, 7]), 
 # array([211840, 283301,  35754,   2747,   9493,  17367,  20510]
 
+###############1. 케라스 투카테고리컬 ###########
 from tensorflow.keras.utils import to_categorical
 y = to_categorical(y)
-y = np.delete(y, 0, axis=1)
 #원핫인코딩 새로 하기!!!!
 print(y)
 print(y.shape) #(581012, 8) to_categorical 안됨!
-
+print(type(y)) # <class numpy 
+print(y[:10])
+print(np.unique(y[:,0],return_counts=True))
+print("=======================================")
+y = np.delete(y, 0, axis=1)
+print(y.shape)
+print(y[:10])
 # import pandas as pd
 # y = pd.get_dummies(y)
 
@@ -64,10 +70,10 @@ earlyStopping = EarlyStopping(monitor='val_loss',
                              patience=20, 
                              restore_best_weights=True,
                              verbose=1)
-model.fit(x_train, y_train, epochs=200, batch_size=32,
+model.fit(x_train, y_train, epochs=100, batch_size=32,
           validation_split=0.2, callbacks=[earlyStopping],
           verbose=1)
-end = time.time()
+# end = time.time()
 
 # 4. 평가, 예측
 loss, accuracy = model.evaluate(x_test, y_test)
@@ -78,16 +84,15 @@ from sklearn.metrics import accuracy_score
 import numpy as np
 y_predict = model.predict(x_test)
 y_predict = np.argmax(y_predict, axis=1)
-print("y_pred(예측값) : ", y_predict)
+print("y_pred(예측값) : ", y_predict[:20])
 y_test = np.argmax(y_test, axis=1)
-print("y_test(원래값) : ", y_test)
+print("y_test(원래값) : ", y_test[:20])
 acc = accuracy_score(y_test, y_predict)
 print('acc :', acc)
-print('time : ', end-start)
+# print('time : ', end-start)
 
 # 힌트 pandas에서는 .values  .numpy() 를 np.argmax에 적용
 # .toarray()
 # np.delete
 '''
-
 '''
