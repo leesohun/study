@@ -27,7 +27,7 @@ model.add(Dense(10, activation='softmax'))
 #3. 컴파일, 훈련
 model.compile(loss='sparse_categorical_crossentropy', optimizer='adam',
               metrics=['acc'])
-model.fit(x_train, y_train, epochs=100, verbose=1, batch_size=128,
+model.fit(x_train, y_train, epochs=100, verbose=1, batch_size=256,
           validation_split=0.2,)
 
 es= EarlyStopping(monitor='val_loss', patience=20, mode = 'min',
@@ -50,7 +50,6 @@ print('acc :', results[1])
 
 
 '''
-
 
 
 
