@@ -1,6 +1,13 @@
 import numpy as np
 from tensorflow.keras.datasets import mnist
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
+
+path = './_save'
+filepath = './_save/MCP/'
+filename = '{epoch:04d}-{val_loss: 4f}.hdf5' 
+
+
+
 #1. 데이터
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
 
@@ -32,14 +39,29 @@ model.add(Dense(10, activation='softmax'))
 #3. 컴파일, 훈련
 model.compile(loss='sparse_categorical_crossentropy', optimizer='adam',
               metrics=['acc'])
-model.fit(x_train, y_train, epochs=100, verbose=1, batch_size=128,
+model.fit(x_train, y_train, epochs=100, verbose=1, batch_size=256,
           validation_split=0.2,)
 
 es= EarlyStopping(monitor='val_loss', patience=20, mode = 'min',
                                restore_best_weights=True,
                                verbose=1)
+                               
+import datetime 
+date = datetime.datetime.now()                           
+print(date)                         
+print(type(date))                 
+date = date.strftime("%m%d_%H%M")                       
+print(date)                               
+print(type(date))   
+
+
+
 mcp = ModelCheckpoint(monitor='val_loss',  mode='auto', verbose=1,
-                       save_best_only=True)
+                       save_best_only=True,
+                       filepath= filepath + 'k34_1_' + date +'_'+filename)
+
+model.save(path+'keras34_1_mnist_save_model.h5')
+
 
 
 
