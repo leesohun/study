@@ -2,6 +2,13 @@ import numpy as np
 from tensorflow.keras.datasets import cifar10, cifar100
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
 
+
+path = './_save'
+filepath = './_save/MCP/'
+filename = '{epoch:04d}-{val_loss: 4f}.hdf5' 
+
+
+
 #1. 데이터
 (x_train, y_train), (x_test, y_test) = cifar10.load_data()
 
@@ -34,10 +41,22 @@ model.fit(x_train, y_train, epochs=100, verbose=1, batch_size=256,
 es= EarlyStopping(monitor='val_loss', patience=20, mode = 'min',
                                restore_best_weights=True,
                                verbose=1)
+
+import datetime 
+date = datetime.datetime.now()                           
+print(date)                         
+print(type(date))                 
+date = date.strftime("%m%d_%H%M")                       
+print(date)                               
+print(type(date))   
+
+
+
 mcp = ModelCheckpoint(monitor='val_loss',  mode='auto', verbose=1,
-                       save_best_only=True)
+                       save_best_only=True,
+                        filepath= filepath + 'k34_2_' + date +'_'+filename)
 
-
+model.save(path+'keras34_2_mnist_save_model.h5')
 
 
 #4. 평가, 예측
