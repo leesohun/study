@@ -28,14 +28,13 @@ model.add(Conv2D(filters=64, kernel_size=(2,2)))
 model.add(Conv2D(filters=64, kernel_size=(2,2)))  
 model.add(Flatten())                             
 model.add(Dense(32, activation='relu'))          
-model.add(Dense(10, activation='softmax'))
+model.add(Dense(100, activation='softmax'))
 
 
 #3. 컴파일, 훈련
 model.compile(loss='sparse_categorical_crossentropy', optimizer='adam',
               metrics=['acc'])
-model.fit(x_train, y_train, epochs=100, verbose=1, batch_size=256,
-          validation_split=0.2,)
+
 
 es= EarlyStopping(monitor='val_loss', patience=20, mode = 'min',
                                restore_best_weights=True,
@@ -50,10 +49,12 @@ print(type(date))
 
 
 
-
 mcp = ModelCheckpoint(monitor='val_loss',  mode='auto', verbose=1,
                        save_best_only=True,
                         filepath= filepath + 'k34_3_' + date +'_'+filename)
+
+model.fit(x_train, y_train, epochs=100, verbose=1, batch_size=2000,
+          validation_split=0.2, callbacks=[es, mcp])
 
 model.save(path+'keras34_3_mnist_save_model.h5')
 
@@ -64,12 +65,16 @@ print('loss : ', results[0])
 print('acc :', results[1])
 
 
+
+
 '''
+Epoch 21: early stopping
+313/313 [==============================] - 16s 49ms/step - loss: 4.6052 - acc: 0.0100
+loss :  4.605180263519287
+acc : 0.009999999776482582
+
 
 '''
-
-
-
 
 
 
