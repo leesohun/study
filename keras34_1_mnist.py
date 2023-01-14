@@ -39,8 +39,7 @@ model.add(Dense(10, activation='softmax'))
 #3. 컴파일, 훈련
 model.compile(loss='sparse_categorical_crossentropy', optimizer='adam',
               metrics=['acc'])
-model.fit(x_train, y_train, epochs=100, verbose=1, batch_size=256,
-          validation_split=0.2,)
+
 
 es= EarlyStopping(monitor='val_loss', patience=20, mode = 'min',
                                restore_best_weights=True,
@@ -60,6 +59,10 @@ mcp = ModelCheckpoint(monitor='val_loss',  mode='auto', verbose=1,
                        save_best_only=True,
                        filepath= filepath + 'k34_1_' + date +'_'+filename)
 
+model.fit(x_train, y_train, epochs=100, verbose=1, batch_size=2000,
+          validation_split=0.2,)
+
+
 model.save(path+'keras34_1_mnist_save_model.h5')
 
 
@@ -73,3 +76,10 @@ print('acc :', results[1])
 
 
 # earlyStopping, mcp 적용/ val 적용
+
+'''
+loss :  0.24988017976284027
+acc : 0.9695000052452087
+
+
+'''
