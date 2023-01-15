@@ -1,10 +1,12 @@
-from sklearn.datasets import load_diabetes
+import numpy as np
+
 from tensorflow.keras.models import Sequential, Model
 from tensorflow.keras.layers import Dense, Input
-import numpy as np
+from tensorflow.keras.callbacks import EarlyStopping
+from sklearn.datasets import load_diabetes
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
-from tensorflow.keras.callbacks import EarlyStopping
+
 
 #1. 데이터
 datasets = load_diabetes()
