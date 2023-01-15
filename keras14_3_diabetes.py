@@ -1,9 +1,12 @@
 # [과제, 실습]
 # R2 0.62 이상
-from sklearn.datasets import load_diabetes
+
+import numpy as np
+
+
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
-import numpy as np
+from sklearn.datasets import load_diabetes
 from sklearn.model_selection import train_test_split
 
 #1. 데이터
