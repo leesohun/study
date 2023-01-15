@@ -1,6 +1,7 @@
 # 과적합 방지 1)데이터를 많이 줌(많은양의데이터) 2. 히든레이어를 일부 솎아내는 '드롭아웃'(훈련시에만사용) 이는 성능 향상으로 이어짐
 # 모델의 체크포인트 지점이 생성될 때마다(이를 이용해서) 가중치를 세이브! 엄청 많이 생길 수 있다는 문제점! 조절 해야 함!!(잘 활용하면 save model보다 편함)
 import numpy as np
+
 from tensorflow.keras.models import Sequential, Model, load_model
 from tensorflow.keras.layers import Dense, Input, Dropout
 from sklearn.model_selection import train_test_split
