@@ -1,10 +1,12 @@
+import numpy as np
+
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
-import numpy as np
+from tensorflow.keras.callbacks import EarlyStopping
 from sklearn.model_selection import train_test_split
 from sklearn.datasets import fetch_california_housing
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
-from tensorflow.keras.callbacks import EarlyStopping
+
 
 #1. 데이터
 dataset = fetch_california_housing()
