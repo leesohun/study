@@ -15,8 +15,8 @@ model.add(Dense(2))
 model.add(Dense(1))
 
 model.summary()
-# architecture의 구조를 알 수 있음
-# architecture의 연산량을 알 수 있음
+# architecture의 구조를 알 수 있다
+# architecture의 연산량을 알 수 있
 # bias를 더함
 
 '''
