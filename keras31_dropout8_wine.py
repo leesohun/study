@@ -12,7 +12,7 @@ from tensorflow.keras.callbacks import EarlyStopping
 path = './_save'
 filepath = './_save/MCP/'
 filename = '{epoch:04d}-{val_loss: 4f}.hdf5'   
-                #  4f는 소수 네번째 자리까지
+                #  4f는 소수 네번째 자리까지.
 
 #1. 데이터
 dataset = load_wine()
