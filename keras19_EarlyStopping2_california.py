@@ -78,6 +78,7 @@ plt.legend(loc='upper right')
 plt.show()
 
 '''
-loss : 0.6441441178321838
-Restoring model weights from the end of the best epoch: 10.
+Epoch 00025: early stopping
+194/194 [==============================] - 0s 496us/step - loss: 0.6694
+loss : 0.6694004535675049
 '''
