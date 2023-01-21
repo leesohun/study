@@ -70,6 +70,7 @@ plt.legend(loc='upper right')
 plt.show()
 
 '''
+loss : 0.6229208707809448
 loss:  0.6135146021842957
 '''
 
