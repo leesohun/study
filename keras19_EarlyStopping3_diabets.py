@@ -83,4 +83,9 @@ plt.show()
 '''
 loss : 3173.258056640625
 Restoring model weights from the end of the best epoch: 132
+
+
+Epoch 167: early stopping
+5/5 [==============================] - 0s 4ms/step - loss: 3160.5276
+loss : 3160.527587890625
 '''
