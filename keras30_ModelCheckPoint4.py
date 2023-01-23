@@ -141,3 +141,8 @@ print("RMSE : ", RMSE(y_test, y_predict))
 
 r2 = r2_score(y_test, y_predict)
 print(r2)
+********************
+RMSE :  3.3669131110240094
+0.8695248338011329
+********************
+
