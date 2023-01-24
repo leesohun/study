@@ -104,4 +104,10 @@ RMSE :  0.1535020194779988
 0.8987357611409472
 
 Restoring model weights from the end of the best epoch: 43.
+
+
+RMSE :  0.1513010898969819
+0.9016188196517944
+
+Restoring model weights from the end of the best epoch: 52.
 '''
