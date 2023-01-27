@@ -58,8 +58,8 @@ model.fit(x, y, epochs=5000, batch_size=32)
 loss = model.evaluate(x, y)
 print('loss : ', loss)
 
-x_pred = np.array([7, 8, 9, 10]).reshape(1, 4, 1)
-result = model.predict(x_pred)
+y_pred = np.array([7, 8, 9, 10]).reshape(1, 4, 1)
+result = model.predict(y_pred)
 print('[7, 8, 9, 10]의 결과 : ', result)
 
 
