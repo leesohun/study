@@ -24,7 +24,7 @@ print(x.shape)
 model = Sequential()          #(N, 3, 1)
 model.add(LSTM(units=64, input_shape=(3, 1), 
                return_sequences=True))  #심플보다 성능이 좋고 이 한 줄 추가! #(N, 64)
-model.add(LSTM(units=32))
+model.add(LSTM(units=64))
 model.add(Dense(64, activation='relu'))
 model.add(Dropout(0.2))
 model.add(Dense(32, activation='relu'))
@@ -51,6 +51,6 @@ print('[50, 60, 70]의 결과 : ', result)
 
 '''
 
-
+[50, 60, 70]의 결과 :  [[73.20336]]
 
 '''
