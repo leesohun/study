@@ -1,6 +1,7 @@
 import numpy as np
 import tensorflow as tf
 import service_identity
+
 from sklearn.datasets import fetch_covtype
 from tensorflow.keras.models import Sequential, Model
 from tensorflow.keras.layers import Dense, Input
