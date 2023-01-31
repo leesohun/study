@@ -24,7 +24,7 @@ test_datagen = ImageDataGenerator(
 xy_train = train_datagen.flow_from_directory(
     './_data/brain/train/',
     target_size=(100,100),
-    batch_size=1000, 
+    batch_size=1000,       #개수를 모르겠으면 batch_size 를 크게
     class_mode='binary',
     color_mode='grayscale',
     shuffle=True, 
@@ -59,17 +59,18 @@ model.add(Dense(1, activation='sigmoid'))
 model.compile(loss='binary_crossentropy', optimizer='adam',
               metrics=['acc'])
 
-hist = model.fit_generator(xy_train, steps_per_epoch=16, epochs=100, 
-                    validation_data=xy_test,
-                    validation_steps=4, )
+# hist = model.fit_generator(xy_train, steps_per_epoch=16, epochs=100, 
+#                     validation_data=xy_test,
+#                     validation_steps=4, )
 
 
-# hist = model.fit(xy_train[0][0], xy_train[0][1],
-#                     batch_size=16,
-#                  #steps_per_epoch=16,
-#                  epochs=100, 
-#                     validation_data=(xy_test[0][0], xy_test[0][1])
-#                     #validation_steps=4, )
+hist = model.fit(xy_train[0][0], xy_train[0][1],
+                    batch_size=16,
+                 #steps_per_epoch=16,
+                 epochs=100, 
+                    validation_data=(xy_test[0][0], xy_test[0][1])
+                    #validation_steps=4,
+                    )
 
 
 #batch를 명시하지 않고 data generator를 받아들이겠다는 형태
@@ -83,5 +84,3 @@ print('loss : ', loss[-1])
 print('val_loss : ', val_loss[-1])
 print('accuracy :', accuracy[-1])
 print('val_acc :', val_acc[-1])
-
-#그림 그려라!!
