@@ -1,6 +1,6 @@
 import numpy as np
 import tensorflow as tf
-from tensorflow.keras.models import Sequential
+from tensorflow.keras.models impor Sequential
 from tensorflow.keras.layers import Dense
 
 #1. 데이터
@@ -27,7 +27,7 @@ model.fit(x, y, epochs=10, batch_size=4)
 result = model.predict([6])
 print('6의 결과 : ', result)
 
-"""
-6의 결과 :  [[5.6546063]]
+"
+6의 결과 : [[5.6546063]]
 """
 #쌍따옴표 3개를 쓰면 블록주석처리가 가능하다
