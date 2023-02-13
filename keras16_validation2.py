@@ -24,6 +24,7 @@ y_validation = y[14:16]
 # y_test = np.array([11,12,13])
 # x_validation = np.array([14,15,16])
 # y_validation = np.array([14,15,16])
+
 # # 머신이 훈련 시키는 것을 검증 
 
 #2. 모델
