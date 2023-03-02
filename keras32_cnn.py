@@ -1,5 +1,6 @@
 from tensorflow.keras.models import Sequential     
 from tensorflow.keras.layers import Dense, Conv2D, Flatten
+
 # 이미지는 Conv2D(2차원) 1차원은 Conv1D 3차원은 Conv3D
 
 model = Sequential()
