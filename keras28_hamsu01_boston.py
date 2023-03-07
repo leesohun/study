@@ -1,8 +1,8 @@
+import numpy as np
 from sklearn import model_selection
 from tensorflow.keras.models import Sequential, Model
 from tensorflow.keras.layers import Dense, Input
 # model과 input을 추가!
-import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.datasets import load_boston
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
