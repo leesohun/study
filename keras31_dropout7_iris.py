@@ -1,8 +1,6 @@
 import numpy as np
-
 from tensorflow.keras.models import Sequential, Model
 from tensorflow.keras.layers import Dense, Input, Dropout
-
 from sklearn.model_selection import train_test_split
 from sklearn.datasets import load_iris
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
