@@ -1,13 +1,11 @@
 import numpy as np
+
 from tensorflow.keras.datasets import cifar10, cifar100
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
-
 
 path = './_save'
 filepath = './_save/MCP/'
 filename = '{epoch:04d}-{val_loss: 4f}.hdf5' 
-
-
 
 #1. 데이터
 (x_train, y_train), (x_test, y_test) = cifar100.load_data()
