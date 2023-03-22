@@ -32,7 +32,7 @@ test_datagen = ImageDataGenerator(
     rescale=1./255
 )
 
-# test_datagen은 rescale만 한다 이유는? test data의 목적은 평가데이터이므로 증폭을 할 필요가 없다!!
+# test_datagen은 rescale만 한다 이유는? test data의 목적은 평가데이터이므로 증폭을 할 필요가 없다!
 
 x_argumented = train_datagen.flow(
     x_argument,
