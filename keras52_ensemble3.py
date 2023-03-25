@@ -1,4 +1,5 @@
 import numpy as np
+
 x1_datasets = np.array([range(100), range(301, 401)]).transpose()
 print(x1_datasets.shape)    #(100, 2)  #삼성전자 시가, 고가
 x2_datasets = np.array([range(101, 201), range(411, 511), range(150, 250)]).transpose()
