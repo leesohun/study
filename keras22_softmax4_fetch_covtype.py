@@ -17,6 +17,7 @@ ohe = OneHotEncoder()
 datasets = fetch_covtype()
 x = datasets.data
 y = datasets['target']
+
 print(x.shape, y.shape)
 # (581012, 54) (581012,)
 print(np.unique(y, return_counts=True))
