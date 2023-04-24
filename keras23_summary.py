@@ -1,6 +1,7 @@
+import numpy as np
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
-import numpy as np
+
 
 # 1. 데이터
 x = np.array([1,2,3])
